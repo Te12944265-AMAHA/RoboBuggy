@@ -414,6 +414,7 @@ int main(void) {
         {
             fputc(message[i], &g_uart_debug);
         }
+        
 
         //We're currently open loop, so we don't toggle the tristate buffer to receive 
         //  data from the servo.  To achieve this we need to figure out how to synchronise 

@@ -76,6 +76,11 @@ int DynamixelClass::send(char id, char message) {
 }
 
 int DynamixelClass::read(servo_message_t* read_message) {
+    while(_steering_uart->available() > 0)
+    {
+        char new_serial_byte = fgetc(_steering_uart);
+        return 0;
+    }
     while(_steering_uart->available() > 0) {
         // check if there is new data
         char new_serial_byte = fgetc(_steering_uart);

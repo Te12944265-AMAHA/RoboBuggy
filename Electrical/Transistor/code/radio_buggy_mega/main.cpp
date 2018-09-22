@@ -441,7 +441,10 @@ int main(void) {
     servo_init();
     adc_init();
     brake_init();
-    steering_center(); // this call takes time
+    // took out steering centering process, since there are no limit switches
+    // just accepts the current steering position as the center
+    //steering_center(); // this call takes time
+    g_encoder_steering.Reset();
 
     // setup rbsm
     g_rbsm.Init(&g_uart_rbsm, &g_uart_rbsm);
